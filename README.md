@@ -1,175 +1,203 @@
-
-
 # Diffie-Hellman Chat Application
-Bu proje, istemciler (clients) ve bir sunucu (server) arasında güvenli iletişim kurmak için Diffie-Hellman Anahtar Değişim Algoritmasını kullanır. Ayrıca, istemciler sunucuya bağlandıktan sonra diğer kullanıcılarla mesajlaşabilir ve mesajlarını kaydedebilir. Proje, brute force saldırılarını test etmek için bir konsol komutu da sunar.
 
-## Özellikler
-Diffie-Hellman Anahtar Değişimi:
+This project uses the Diffie-Hellman Key Exchange Algorithm to establish secure communication between clients and a server. After connecting to the server, clients can message other users and save their messages. Additionally, the project provides a console command to test brute force attacks.
 
-İstemci ile sunucu arasında anahtar değişimi yapılır.
-Anahtarlar güvenli bir şekilde oluşturulur ve kullanılır.
-## Mesajlaşma:
+## Features
 
-"Everyone" seçeneği ile mesajlar tüm kullanıcılara iletilebilir.
-Belirli bir kullanıcıya doğrudan mesaj gönderilebilir.
-## Kayıt ve Giriş Sistemi:
+### Diffie-Hellman Key Exchange:
+- Key exchange is performed between the client and the server.
+- Keys are generated and used securely.
 
-Kullanıcılar kayıt olabilir ve giriş yapabilir.
-Giriş yaptıktan sonra, daha önce kendilerine gönderilen mesajlar istemciye iletilir.
-## Sunucu Özellikleri:
+### Messaging:
+- Messages can be sent to all users using the "Everyone" option.
+- Direct messages can be sent to specific users.
 
-Gelen mesajları kaydeder.
-Sunucu üzerinden istemcilere mesaj gönderilebilir.
-## Brute Force Testi:
+### Registration and Login System:
+- Users can register and log in.
+- After logging in, users receive messages sent to them previously.
 
-Konsola bruteforce yazılarak sistemin brute force saldırılarına karşı performansı test edilebilir.
-# Kurulum ve Çalıştırma
-## Gereksinimler
-.NET Framework veya .NET Core SDK
-MySQL Veritabanı (Mesaj ve kullanıcı bilgileri için)
-## Adımlar
-### Proje Depolarını Klonlayın:
+### Server Features:
+- Stores incoming messages.
+- Messages can be sent to clients via the server.
+
+### Brute Force Test:
+- By typing `bruteforce` in the console, the system's performance against brute force attacks can be tested.
+
+# Setup and Running the Application
+
+## Requirements
+- .NET Framework or .NET Core SDK
+- MySQL Database (for storing messages and user information)
+
+## Steps
+
+### Clone the Project Repository:
 ```
 git clone https://github.com/PnterNN/Diffie-Hellman-Project
 ```
-### Sunucu (Server) Başlatma:
+### Server Startup:
 
-Server projesini çalıştırın.
-Sunucu, varsayılan olarak Port: 900 üzerinden çalışır.
-### İstemci (Client) Bağlantısı:
+- Run the server project.
+- The server runs on `Port: 900` by default.
 
-Client projesini çalıştırın.
-Sunucu IP adresi ve port bilgilerini girerek bağlantı kurun.
-### Mesajlaşma:
+### Client Connection:
 
-Kayıt olun veya giriş yapın.
-"Everyone" seçeneğiyle herkese veya belirli bir kullanıcıya mesaj gönderin.
-### Brute Force Testi:
+- Run the client project.
+- Enter the server's IP address and port to establish a connection.
 
-MiddleMan projesini çalıştırın.
-Konsola bruteforce yazarak brute force testini başlatın.
-Kullanım
-### Sunucu (Server):
-Mesaj gönderimi:
-Everyone veya belirli bir kullanıcıya mesaj gönderebilirsiniz.
-Mesajlar ve kullanıcı bilgileri MySQL veritabanına kaydedilir.
-### İstemci (Client):
-Giriş yaptıktan sonra:
-Daha önce alınan mesajlar istemciye iletilir.
-Diğer kullanıcılarla mesajlaşabilirsiniz.
-Yeni bir kullanıcı oluşturmak için kayıt olabilirsiniz.
+### Messaging:
+
+- Register or log in.
+- Use the "Everyone" option to send messages to all users or send messages to a specific user.
+
+### Brute Force Test:
+
+- Run the MiddleMan project.
+- Type `bruteforce` in the console to start the brute force test.
+
+## Usage
+
+### Server:
+
+- **Message Sending**:
+  - You can send messages to "Everyone" or a specific user.
+  - Messages and user information are stored in the MySQL database.
+
+### Client:
+
+- **After Logging In**:
+  - Previously received messages are delivered to the client.
+  - You can chat with other users.
+  - You can register as a new user if needed.
+
 ### Brute Force (MiddleMan):
-Konsola bruteforce yazarak şifreleme algoritmasının güvenliğini test edebilirsiniz.
-Bu işlem, Diffie-Hellman protokolünün belirli anahtarları ne kadar hızlı bulabileceğini analiz eder.
-## Proje Mimarisi
-### Client (İstemci):
-Kullanıcı kayıt/giriş sistemi
-Diğer istemcilere mesaj gönderimi
-Diffie-Hellman anahtar değişimi
-### Server (Sunucu):
-Kullanıcı oturumları ve mesajları yönetir.
-Mesajları veritabanında saklar.
-Anahtar değişimini yönetir.
-3. MiddleMan (Ara Katman):
-Brute force saldırı testi.
-Diffie-Hellman anahtar değişim güvenliğini analiz eder.
-Ekran Görüntüleri
-## Sunucu Arayüzü
-Sunucunun bağlantıları, mesajlaşmaları ve kullanıcı yönetimini gösterir.
+
+- Type `bruteforce` in the console to test the security of the encryption algorithm.
+- This process analyzes how quickly the Diffie-Hellman protocol can find specific keys.
+
+## Project Architecture
+
+### Client:
+
+- User registration/login system.
+- Message sending to other clients.
+- Diffie-Hellman key exchange.
+
+### Server:
+
+- Manages user sessions and messages.
+- Stores messages in the database.
+- Handles key exchange.
+
+### MiddleMan:
+
+- Performs brute force attack testing.
+- Analyzes the security of the Diffie-Hellman key exchange.
+
+## Screenshots
+
+### Server Interface
+
+Displays server connections, messaging, and user management.
+
 ![image](https://github.com/user-attachments/assets/76d1f460-bdb5-407a-87cd-63be7a1f73a4)
 
+### Client Interface
 
-## İstemci Arayüzü
-Kullanıcı giriş/kayıt ekranı ve mesajlaşma arayüzünü içerir.
+Includes user login/registration screen and messaging interface.
+
 ![image](https://github.com/user-attachments/assets/2eb550a2-529f-4ab7-a473-5451c3aa72e3)
 
-## Önemli Notlar
-Anahtar değişiminde Diffie-Hellman algoritması kullanılmaktadır.
-Sunucu, kullanıcı oturum bilgilerini ve mesajları güvenli bir şekilde kaydeder.
-MiddleMan uygulaması yalnızca test amaçlıdır; gerçek saldırılar için kullanılmamalıdır.
-## Veritabanı Şeması
-<div>
-  <h3>Veritabanı Şeması</h3>
+## Important Notes
 
-  <h4>Tablo: Users</h4>
+- The Diffie-Hellman algorithm is used for key exchange.
+- The server securely stores user session data and messages.
+- The MiddleMan application is for testing purposes only and should not be used for real attacks.
+
+## Database Schema
+
+<div>
+  <h3>Database Schema</h3>
+
+  <h4>Table: Users</h4>
   <table border="1">
     <thead>
       <tr>
         <th>Column</th>
         <th>Data Type</th>
-        <th>Açıklama</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Id</td>
         <td>INT</td>
-        <td>Kullanıcı ID</td>
+        <td>User ID</td>
       </tr>
       <tr>
         <td>Username</td>
         <td>VARCHAR</td>
-        <td>Kullanıcı Adı</td>
+        <td>Username</td>
       </tr>
       <tr>
         <td>Email</td>
         <td>VARCHAR</td>
-        <td>E-posta</td>
+        <td>Email address</td>
       </tr>
       <tr>
         <td>Password</td>
         <td>VARCHAR</td>
-        <td>Şifre (Hashlenmiş)</td>
+        <td>Password (Hashed)</td>
       </tr>
     </tbody>
   </table>
 
-  <h4>Tablo: Messages</h4>
+  <h4>Table: Messages</h4>
   <table border="1">
     <thead>
       <tr>
         <th>Column</th>
         <th>Data Type</th>
-        <th>Açıklama</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>Id</td>
         <td>INT</td>
-        <td>Mesaj ID</td>
+        <td>Message ID</td>
       </tr>
       <tr>
         <td>Sender</td>
         <td>VARCHAR</td>
-        <td>Mesajı gönderen</td>
+        <td>Message sender</td>
       </tr>
       <tr>
         <td>Receiver</td>
         <td>VARCHAR</td>
-        <td>Mesajın alıcısı</td>
+        <td>Message recipient</td>
       </tr>
       <tr>
         <td>Message</td>
         <td>TEXT</td>
-        <td>Mesaj içeriği</td>
+        <td>Message content</td>
       </tr>
       <tr>
         <td>Timestamp</td>
         <td>DATETIME</td>
-        <td>Mesaj gönderim zamanı</td>
+        <td>Message timestamp</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-## Geliştirici Notları
+## Developer Notes
 
-### Şifreleme: 
-Diffie-Hellman algoritması kullanılarak iletişim güvenliği sağlanmıştır.
+### Encryption:
+- The Diffie-Hellman algorithm ensures secure communication.
 
-### Test: 
-MiddleMan uygulaması ile brute force testleri yapılabilir.
+### Testing:
+- Brute force tests can be conducted using the MiddleMan application.
 
-### Genişletilebilirlik: 
-Mesajlaşma protokolü ve kayıt sistemi genişletilebilir şekilde tasarlanmıştır.
+### Extensibility:
+- The messaging protocol and registration system are designed to be expandable.
